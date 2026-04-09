@@ -9,6 +9,7 @@
 /* === CSS VARIABLES === */
 :root {
   --sky-blue: #6EC1E4;
+  --accent-red: #E02020;
   --sky-light: #A8D8EA;
   --sky-pale: #E8F6FC;
   --cream: #FAF3E0;
@@ -225,6 +226,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   color: var(--deep-blue);
   letter-spacing: 0.02em;
 }
+/* "Shahnaz" in blue, "Med" in red */
+.logo-shahnaz { color: var(--sky-blue); }
+.logo-med     { color: var(--accent-red); }
 
 .nav-logo .logo-sub {
   font-size: 0.6rem;
@@ -256,13 +260,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   left: 0;
   width: 0;
   height: 1.5px;
-  background: var(--sky-blue);
+  background: var(--accent-red);
   transition: var(--transition);
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--deep-blue);
+  color: var(--accent-red);
 }
 
 .nav-links a:hover::after,
@@ -349,7 +353,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 .mobile-nav a:last-child { border-bottom: none; }
 
-.mobile-nav a:hover { color: var(--sky-blue); padding-left: 8px; }
+.mobile-nav a:hover { color: var(--accent-red); padding-left: 8px; }
 
 /* === BUTTONS === */
 .btn {
@@ -423,7 +427,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   margin-bottom: 16px;
 }
 
@@ -445,7 +449,7 @@ section {
 
 .section-title em {
   font-style: italic;
-  color: var(--sky-blue);
+  color: var(--accent-red);
 }
 
 .section-desc {
@@ -688,7 +692,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   margin-bottom: 6px;
 }
 
@@ -1028,7 +1032,7 @@ section {
 .quote-mark {
   font-family: var(--font-display);
   font-size: 6rem;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   opacity: 0.3;
   line-height: 0.8;
   margin-bottom: 16px;
@@ -1104,7 +1108,7 @@ footer {
 }
 
 .footer-brand .nav-logo .logo-sub {
-  color: var(--sky-blue);
+  color: var(--accent-red);
 }
 
 .footer-brand p {
@@ -1137,7 +1141,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-  color: var(--sky-blue);
+  color: var(--accent-red);
   padding-left: 6px;
 }
 
@@ -1156,7 +1160,7 @@ footer {
 }
 
 .footer-bottom a {
-  color: var(--sky-blue);
+  color: var(--accent-red);
 }
 
 .footer-socials {
@@ -1449,7 +1453,7 @@ footer {
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   font-weight: 600;
 }
 
@@ -1516,7 +1520,7 @@ footer {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   margin-bottom: 6px;
 }
 
@@ -1641,9 +1645,9 @@ footer {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   margin-bottom: 24px;
-  box-shadow: 0 4px 20px rgba(110,193,228,0.15);
+  box-shadow: 0 4px 20px rgba(224,32,32,0.1);
 }
 
 .soon-dot {
@@ -1670,7 +1674,7 @@ footer {
 
 .soon-title em {
   font-style: italic;
-  color: var(--sky-blue);
+  color: var(--accent-red);
 }
 
 .soon-desc {
@@ -1769,7 +1773,7 @@ footer {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sky-blue);
+  color: var(--accent-red);
   margin-bottom: 4px;
 }
 
@@ -1991,4 +1995,35 @@ footer {
   .notify-form input { min-width: 100%; }
   .hero-actions { flex-direction: column; }
   .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ── Brand Logo Image ── */
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.nav-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-logo-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+  display: block;
+}
+/* Logo placeholder (shown when image doesn't load) */
+.logo-img-placeholder {
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }

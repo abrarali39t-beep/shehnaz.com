@@ -155,9 +155,15 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="logo-main">Shahnaz Med</span>
-      <span class="logo-sub">Modest Medical Wear</span>
+    <a href="index.html" class="nav-logo nav-logo-wrap">
+      <img src="logo.png" alt="Shahnaz Med Logo" class="nav-logo-img"
+           onerror="this.style.display='none'" />
+      <div>
+        <span class="logo-main">
+          <span class="logo-shahnaz">Shahnaz</span> <span class="logo-med">Med</span>
+        </span>
+        <span class="logo-sub">Modest Medical Wear</span>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -182,32 +188,12 @@
   <section class="products-soon">
     <div class="products-soon-inner">
 
-      <!-- Shimmer preview cards -->
-      <div class="shimmer-cards reveal">
-        <div class="shimmer-card">
-          <div class="shimmer-img"></div>
-          <div class="shimmer-content">
-            <div class="shimmer-line"></div>
-            <div class="shimmer-line"></div>
-            <div class="shimmer-line"></div>
-          </div>
-        </div>
-        <div class="shimmer-card">
-          <div class="shimmer-img" style="animation-delay:0.3s;"></div>
-          <div class="shimmer-content">
-            <div class="shimmer-line"></div>
-            <div class="shimmer-line"></div>
-            <div class="shimmer-line"></div>
-          </div>
-        </div>
-        <div class="shimmer-card">
-          <div class="shimmer-img" style="animation-delay:0.6s;"></div>
-          <div class="shimmer-content">
-            <div class="shimmer-line"></div>
-            <div class="shimmer-line"></div>
-            <div class="shimmer-line"></div>
-          </div>
-        </div>
+      <!-- Real product image -->
+      <div class="reveal" style="margin-bottom: 32px; text-align: center;">
+        <img src="image.png" alt="Shahnaz Med — Modest Medical Wear"
+             style="max-width: 320px; width: 90%; border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-lift); object-fit: cover;"
+             onerror="this.parentElement.style.display='none'" />
       </div>
 
       <!-- Badge -->
@@ -417,7 +403,9 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo">
-            <span class="logo-main">Shahnaz Med</span>
+            <span class="logo-main">
+              <span class="logo-shahnaz">Shahnaz</span> <span class="logo-med">Med</span>
+            </span>
             <span class="logo-sub">Modest Medical Wear</span>
           </div>
           <p>Modest. Comfortable. Functional. Medical wear designed for women who deserve attire that respects both their profession and their personal values.</p>
@@ -443,16 +431,16 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 Shahnaz Med. All rights reserved. Designed with 💙</p>
-        <div class="footer-socials">
-          <a href="#" class="social-btn" aria-label="Instagram">in</a>
-          <a href="#" class="social-btn" aria-label="Facebook">fb</a>
-          <a href="#" class="social-btn" aria-label="TikTok">tt</a>
+                        <div class="footer-socials">
+          <a href="https://www.instagram.com/shahnazmed?utm_source=qr&amp;igsh=MTNuaGttdHgwcGh5Ng==" target="_blank" class="social-btn" aria-label="Instagram" title="Instagram">📸</a>
+          <a href="https://wa.me/919103681134" target="_blank" class="social-btn" aria-label="WhatsApp" title="WhatsApp">💬</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
   <script>
     // Countdown to launch (3 months from today)
     const launchDate = new Date();
@@ -470,11 +458,6 @@
       const pad = n => String(Math.floor(n)).padStart(2, '0');
       document.getElementById('cd-days').textContent  = pad(diff / 86400000);
       document.getElementById('cd-hours').textContent = pad((diff % 86400000) / 3600000);
-      document.getElementById('cd-mins').textContent  = pad((diff % 3600000) / 60000);
-      document.getElementById('cd-secs').textContent  = pad((diff % 60000) / 1000);
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+      document.getEleme
 </body>
 </html>

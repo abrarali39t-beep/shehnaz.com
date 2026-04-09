@@ -32,9 +32,15 @@
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="logo-main">Shahnaz Med</span>
-      <span class="logo-sub">Modest Medical Wear</span>
+    <a href="index.html" class="nav-logo nav-logo-wrap">
+      <img src="logo.png" alt="Shahnaz Med Logo" class="nav-logo-img"
+           onerror="this.style.display='none'" />
+      <div>
+        <span class="logo-main">
+          <span class="logo-shahnaz">Shahnaz</span> <span class="logo-med">Med</span>
+        </span>
+        <span class="logo-sub">Modest Medical Wear</span>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
@@ -62,27 +68,33 @@
     <div class="hero-inner">
       <!-- Content -->
       <div class="hero-content">
-        <div class="hero-badge reveal">
+        <!-- Hero Logo -->
+        <div class="reveal" style="margin-bottom: 24px;">
+          <img src="logo.png" alt="Shahnaz Med" class="hero-logo-img"
+               onerror="this.style.display='none'" />
+        </div>
+
+        <div class="hero-badge reveal delay-1">
           <span></span>
           New Collection Coming Soon
         </div>
-        <h1 class="hero-title reveal delay-1">
-          Designed for <em>Comfort,</em><br>
+        <h1 class="hero-title reveal delay-2">
+          Designed for Comfort,<br>
           Styled for Confidence
         </h1>
-        <p class="hero-subtitle reveal delay-2">
+        <p class="hero-subtitle reveal delay-3">
           Shahnaz Med creates modest, comfortable, and functional medical wear for women — 
           with better coverage, longer lengths, and practical fits that support you 
           through every demanding shift.
         </p>
-        <div class="hero-actions reveal delay-3">
+        <div class="hero-actions reveal delay-4">
           <a href="products.html" class="btn btn-primary">
             Explore Collection
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="about.html" class="btn btn-outline">Our Story</a>
         </div>
-        <div class="hero-stats reveal delay-4">
+        <div class="hero-stats reveal delay-5">
           <div class="stat-item">
             <div class="stat-number" data-count="100" data-suffix="%">0%</div>
             <div class="stat-label">Modest by Design</div>
@@ -121,17 +133,19 @@
   </section>
 
   <!-- ===== ABOUT PREVIEW ===== -->
-  <section class="about-preview">
-    <div class="about-preview-inner">
-      <div class="about-preview-visual reveal-left">
-        <div class="about-img-wrap">
-          <div class="about-img-bg">👩‍⚕️</div>
-        </div>
-        <div class="about-float">
-          <div class="about-float-num">100%</div>
-          <div class="about-float-label">Modest by Design</div>
+<section class="about-preview">
+  <div class="about-preview-inner">
+    <div class="about-preview-visual reveal-left">
+      <div class="about-img-wrap">
+        <div class="about-img-bg">
+          <img src="image.png" alt="About Image" class="about-img">
         </div>
       </div>
+      <div class="about-float">
+        <div class="about-float-num">100%</div>
+        <div class="about-float-label">Modest by Design</div>
+      </div>
+    </div>
       <div class="about-preview-content reveal-right">
         <div class="section-label">About Shahnaz Med</div>
         <h2 class="section-title">
@@ -269,7 +283,9 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo">
-            <span class="logo-main">Shahnaz Med</span>
+            <span class="logo-main">
+              <span class="logo-shahnaz">Shahnaz</span> <span class="logo-med">Med</span>
+            </span>
             <span class="logo-sub">Modest Medical Wear</span>
           </div>
           <p>
@@ -299,9 +315,8 @@
       <div class="footer-bottom">
         <p>&copy; 2025 Shahnaz Med. All rights reserved. Designed with 💙</p>
         <div class="footer-socials">
-          <a href="#" class="social-btn" title="Instagram" aria-label="Instagram">in</a>
-          <a href="#" class="social-btn" title="Facebook"  aria-label="Facebook">fb</a>
-          <a href="#" class="social-btn" title="TikTok"   aria-label="TikTok">tt</a>
+          <a href="https://www.instagram.com/shahnazmed?utm_source=qr&amp;igsh=MTNuaGttdHgwcGh5Ng==" target="_blank" class="social-btn" aria-label="Instagram" title="Instagram">📸</a>
+          <a href="https://wa.me/919103681134" target="_blank" class="social-btn" aria-label="WhatsApp" title="WhatsApp">💬</a>
         </div>
       </div>
     </div>
