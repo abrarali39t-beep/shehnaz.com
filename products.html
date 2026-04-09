@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shahnaz Med products — modest medical wear coming soon. Scrubs with better coverage, comfortable fits, and practical designs for women." />
+  <title>Products — Shahnaz Med</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>" />
+  <style>
+    /* ── Countdown ── */
+    .countdown {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 32px 0 40px;
+      flex-wrap: wrap;
+    }
+    .countdown-unit { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .countdown-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--deep-blue);
+      background: var(--white);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      min-width: 72px;
+      text-align: center;
+      line-height: 1;
+      border: 1px solid var(--border);
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Skeleton product cards ── */
+    .skeleton-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .skeleton-product {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .skeleton-product::after {
+      content: 'Coming Soon';
+      position: absolute;
+      top: 16px; right: 16px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      background: var(--white);
+      border-radius: 100px;
+      color: var(--sky-blue);
+      border: 1px solid var(--sky-light);
+    }
+    .skel-img {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .skel-img-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, var(--sky-pale), #D4EDF8);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .skel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.4) 50%, transparent 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+    .skel-body { padding: 20px; }
+    .skel-line {
+      height: 10px; border-radius: 5px;
+      background: linear-gradient(90deg, #f0f7fc 25%, #d8eef8 50%, #f0f7fc 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      margin-bottom: 10px;
+    }
+    .skel-line.w-60 { width: 60%; }
+    .skel-line.w-80 { width: 80%; animation-delay: 0.15s; }
+    .skel-line.w-40 { width: 40%; animation-delay: 0.3s; }
+    .skel-price {
+      height: 16px; width: 30%; border-radius: 5px;
+      background: linear-gradient(90deg, #e0f0f8 25%, #c5e2f5 50%, #e0f0f8 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      margin-top: 14px; animation-delay: 0.45s;
+    }
+
+    /* ── Worth the wait ── */
+    .worth-wait { padding: 80px 5%; background: var(--cream-light); }
+    .worth-wait-inner { max-width: 900px; margin: 0 auto; }
+    .worth-wait-header { text-align: center; margin-bottom: 48px; }
+    .worth-list { display: flex; flex-direction: column; gap: 16px; }
+    .worth-item {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: var(--white); border-radius: var(--radius-md);
+      padding: 24px; box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+    }
+    .worth-item:hover { transform: translateX(6px); box-shadow: var(--shadow-medium); }
+    .worth-num {
+      font-family: var(--font-display); font-size: 2rem;
+      font-weight: 600; color: var(--sky-light);
+      line-height: 1; min-width: 36px;
+    }
+    .worth-content h4 {
+      font-family: var(--font-display); font-size: 1.1rem;
+      color: var(--deep-blue); margin-bottom: 4px;
+    }
+    .worth-content p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    @media (max-width: 768px) { .skeleton-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) {
+      .skeleton-grid { grid-template-columns: 1fr; }
+      .countdown-num { font-size: 1.8rem; min-width: 56px; padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-progress"></div>
+    <div class="loader-logo">
+      <span>Shahnaz Med</span>
+      <span>Modest Medical Wear</span>
+    </div>
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- BACKGROUND BLOBS -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">Shahnaz Med</span>
+      <span class="logo-sub">Modest Medical Wear</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="founder.html">Founder</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="founder.html">Founder</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <!-- COMING SOON HERO -->
+  <section class="products-soon">
+    <div class="products-soon-inner">
+
+      <!-- Shimmer preview cards -->
+      <div class="shimmer-cards reveal">
+        <div class="shimmer-card">
+          <div class="shimmer-img"></div>
+          <div class="shimmer-content">
+            <div class="shimmer-line"></div>
+            <div class="shimmer-line"></div>
+            <div class="shimmer-line"></div>
+          </div>
+        </div>
+        <div class="shimmer-card">
+          <div class="shimmer-img" style="animation-delay:0.3s;"></div>
+          <div class="shimmer-content">
+            <div class="shimmer-line"></div>
+            <div class="shimmer-line"></div>
+            <div class="shimmer-line"></div>
+          </div>
+        </div>
+        <div class="shimmer-card">
+          <div class="shimmer-img" style="animation-delay:0.6s;"></div>
+          <div class="shimmer-content">
+            <div class="shimmer-line"></div>
+            <div class="shimmer-line"></div>
+            <div class="shimmer-line"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge -->
+      <div class="soon-badge reveal delay-1">
+        <span class="soon-dot"></span>
+        Collection Launching Soon
+      </div>
+
+      <!-- Title -->
+      <h1 class="soon-title reveal delay-2">
+        Something <em>Beautiful</em><br>Is Being Crafted
+      </h1>
+
+      <!-- Description -->
+      <p class="soon-desc reveal delay-3">
+        Our inaugural collection of modest medical wear is being carefully designed, 
+        fabric-tested, and perfected. Scrubs with better coverage, longer lengths, 
+        and practical fits — built for women who deserve better. Sign up to be first.
+      </p>
+
+      <!-- Countdown -->
+      <div class="countdown reveal delay-3">
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-days">00</div>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-hours">00</div>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-mins">00</div>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-secs">00</div>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <!-- Notify form -->
+      <form class="notify-form reveal delay-4" id="notify-form">
+        <input type="email" placeholder="Enter your email address" required aria-label="Email for launch notification" />
+        <button type="submit" class="btn btn-primary">
+          Notify Me
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES PREVIEW -->
+  <section style="padding: 80px 5%; background: var(--white);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="text-center" style="margin-bottom: 16px;">
+        <div class="section-label reveal">What's Coming</div>
+        <h2 class="section-title reveal delay-1">A Glimpse of Our<br><em>Collection</em></h2>
+        <p class="section-desc reveal delay-2" style="margin: 16px auto 0;">
+          Each piece designed with full coverage, clinical function, and feminine elegance — 
+          longer lengths, proper sleeve coverage, and all-day comfort.
+        </p>
+      </div>
+      <div class="skeleton-grid">
+        <div class="skeleton-product reveal delay-1">
+          <div class="skel-img">
+            <div class="skel-img-bg">🥼</div>
+            <div class="skel-overlay"></div>
+          </div>
+          <div class="skel-body">
+            <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky-blue); margin-bottom:6px;">Modest Scrub Set</div>
+            <div class="skel-line w-60"></div>
+            <div class="skel-line w-80"></div>
+            <div class="skel-price"></div>
+          </div>
+        </div>
+        <div class="skeleton-product reveal delay-2">
+          <div class="skel-img">
+            <div class="skel-img-bg" style="background: linear-gradient(160deg, #FFF3DC, #FFE5B4);">👗</div>
+            <div class="skel-overlay"></div>
+          </div>
+          <div class="skel-body">
+            <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky-blue); margin-bottom:6px;">Long Scrub Dress</div>
+            <div class="skel-line w-60"></div>
+            <div class="skel-line w-80"></div>
+            <div class="skel-price"></div>
+          </div>
+        </div>
+        <div class="skeleton-product reveal delay-3">
+          <div class="skel-img">
+            <div class="skel-img-bg" style="background: linear-gradient(160deg, #E8F6FC, #C5E8F5);">🧥</div>
+            <div class="skel-overlay"></div>
+          </div>
+          <div class="skel-body">
+            <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky-blue); margin-bottom:6px;">Full-Sleeve Top</div>
+            <div class="skel-line w-60"></div>
+            <div class="skel-line w-80"></div>
+            <div class="skel-price"></div>
+          </div>
+        </div>
+        <div class="skeleton-product reveal delay-2">
+          <div class="skel-img">
+            <div class="skel-img-bg" style="background: linear-gradient(160deg, #F0F0F8, #E0E0F4);">🧣</div>
+            <div class="skel-overlay"></div>
+          </div>
+          <div class="skel-body">
+            <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky-blue); margin-bottom:6px;">Under-Scrub Layer</div>
+            <div class="skel-line w-60"></div>
+            <div class="skel-line w-80"></div>
+            <div class="skel-price"></div>
+          </div>
+        </div>
+        <div class="skeleton-product reveal delay-3">
+          <div class="skel-img">
+            <div class="skel-img-bg" style="background: linear-gradient(160deg, #F5F0FF, #E8DCFF);">🩱</div>
+            <div class="skel-overlay"></div>
+          </div>
+          <div class="skel-body">
+            <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky-blue); margin-bottom:6px;">Modest Tunic Top</div>
+            <div class="skel-line w-60"></div>
+            <div class="skel-line w-80"></div>
+            <div class="skel-price"></div>
+          </div>
+        </div>
+        <div class="skeleton-product reveal delay-4">
+          <div class="skel-img">
+            <div class="skel-img-bg" style="background: linear-gradient(160deg, #F0FFF5, #DCF5E5);">🎽</div>
+            <div class="skel-overlay"></div>
+          </div>
+          <div class="skel-body">
+            <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky-blue); margin-bottom:6px;">Wide-Leg Scrub Pants</div>
+            <div class="skel-line w-60"></div>
+            <div class="skel-line w-80"></div>
+            <div class="skel-price"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WORTH THE WAIT -->
+  <section class="worth-wait">
+    <div class="worth-wait-inner">
+      <div class="worth-wait-header">
+        <div class="section-label reveal">Worth the Wait</div>
+        <h2 class="section-title reveal delay-1">Why Our Collection<br>Takes <em>Time</em></h2>
+        <p class="section-desc reveal delay-2" style="margin: 16px auto 0; text-align: center;">
+          We don't rush. Every detail is considered so that when our collection launches, 
+          it truly delivers on every promise we've made.
+        </p>
+      </div>
+      <div class="worth-list" style="margin-top: 40px;">
+        <div class="worth-item reveal delay-1">
+          <div class="worth-num">01</div>
+          <div class="worth-content">
+            <h4>Modesty Verified at Every Stage</h4>
+            <p>Every prototype is checked for proper coverage when sitting, bending, reaching, and lifting — because modesty must hold in every position, not just standing still.</p>
+          </div>
+        </div>
+        <div class="worth-item reveal delay-2">
+          <div class="worth-num">02</div>
+          <div class="worth-content">
+            <h4>Real-World Comfort Testing</h4>
+            <p>Our fabrics and fits are tested by women during actual long working days — not just on a model. If it's not comfortable through a full shift, we redesign it.</p>
+          </div>
+        </div>
+        <div class="worth-item reveal delay-3">
+          <div class="worth-num">03</div>
+          <div class="worth-content">
+            <h4>Premium Fabric Selection</h4>
+            <p>We carefully source breathable, durable, easy-care fabrics that hold up to the demands of medical work — and look polished doing it.</p>
+          </div>
+        </div>
+        <div class="worth-item reveal delay-4">
+          <div class="worth-num">04</div>
+          <div class="worth-content">
+            <h4>Built Around Community Feedback</h4>
+            <p>Our designs are shaped by the women who will wear them. We listen, we iterate, and we refine — so what we launch is truly what was asked for.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner-inner">
+      <div class="section-label reveal">Don't Miss the Launch</div>
+      <h2 class="section-title reveal delay-1">Be First to Wear<br><em>Shahnaz Med</em></h2>
+      <p class="section-desc reveal delay-2">
+        Sign up above to get notified the moment our collection goes live. 
+        Or reach out directly — we'd love to hear from you.
+      </p>
+      <div class="cta-actions reveal delay-3">
+        <a href="contact.html" class="btn btn-primary">
+          Contact Us
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="about.html" class="btn btn-outline">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-main">Shahnaz Med</span>
+            <span class="logo-sub">Modest Medical Wear</span>
+          </div>
+          <p>Modest. Comfortable. Functional. Medical wear designed for women who deserve attire that respects both their profession and their personal values.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Our Founder</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:shahnazmed@gmail.com">shahnazmed@gmail.com</a></li>
+            <li><a href="tel:9103681134">+91 910 368 1134</a></li>
+            <li><a href="https://www.shahnazmed.com" target="_blank">www.shahnazmed.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Shahnaz Med. All rights reserved. Designed with 💙</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">in</a>
+          <a href="#" class="social-btn" aria-label="Facebook">fb</a>
+          <a href="#" class="social-btn" aria-label="TikTok">tt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Countdown to launch (3 months from today)
+    const launchDate = new Date();
+    launchDate.setMonth(launchDate.getMonth() + 3);
+    launchDate.setHours(0, 0, 0, 0);
+
+    function updateCountdown() {
+      const diff = launchDate - new Date();
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+          document.getElementById(id).textContent = '00';
+        });
+        return;
+      }
+      const pad = n => String(Math.floor(n)).padStart(2, '0');
+      document.getElementById('cd-days').textContent  = pad(diff / 86400000);
+      document.getElementById('cd-hours').textContent = pad((diff % 86400000) / 3600000);
+      document.getElementById('cd-mins').textContent  = pad((diff % 3600000) / 60000);
+      document.getElementById('cd-secs').textContent  = pad((diff % 60000) / 1000);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

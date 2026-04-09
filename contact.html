@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Shahnaz Med — reach out for enquiries, wholesale, or to learn more about our modest medical wear. Email: shahnazmed@gmail.com | Phone: +91 910 368 1134" />
+  <title>Contact Us — Shahnaz Med</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>" />
+  <style>
+    /* FAQ accordion */
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover { border-color: var(--sky-light); box-shadow: var(--shadow-soft); }
+    .faq-question {
+      width: 100%;
+      padding: 22px 28px;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--deep-blue);
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      background: none;
+      border: none;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--sky-pale);
+      color: var(--sky-blue);
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .faq-item.open .faq-icon { background: var(--sky-blue); color: var(--white); transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding: 0 28px 22px;
+      border-top: 1px solid var(--border);
+    }
+    .faq-answer-inner { padding-top: 18px; }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-progress"></div>
+    <div class="loader-logo">
+      <span>Shahnaz Med</span>
+      <span>Modest Medical Wear</span>
+    </div>
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- BACKGROUND BLOBS -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">Shahnaz Med</span>
+      <span class="logo-sub">Modest Medical Wear</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="founder.html">Founder</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="founder.html">Founder</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html" class="active">Contact Us</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-label reveal">Get in Touch</div>
+      <h1 class="section-title reveal delay-1">We'd Love to<br><em>Hear from You</em></h1>
+      <p class="section-desc reveal delay-2">
+        Whether you have a question about our collection, a wholesale enquiry, 
+        or just want to connect — our team is here and happy to help.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-inner">
+
+      <!-- Left: Info Panel -->
+      <div class="contact-info reveal-left">
+        <div class="section-label">Reach Out</div>
+        <h2 class="section-title">Let's Start a<br><em>Conversation</em></h2>
+        <p>
+          We're a passionate team built on real purpose. When you reach out, you're 
+          talking to people who genuinely care about your experience and your needs.
+        </p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">🌐</div>
+            <div class="contact-item-content">
+              <h4>Website</h4>
+              <p><a href="https://www.shahnazmed.com" target="_blank" style="color:var(--deep-blue); font-weight:500;">www.shahnazmed.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-content">
+              <h4>Email Us</h4>
+              <p><a href="mailto:shahnazmed@gmail.com" style="color:var(--deep-blue); font-weight:500;">shahnazmed@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-content">
+              <h4>Phone / WhatsApp</h4>
+              <p><a href="tel:9103681134" style="color:var(--deep-blue); font-weight:500;">+91 910 368 1134</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">👨‍💼</div>
+            <div class="contact-item-content">
+              <h4>Founder &amp; CEO</h4>
+              <p>Khan Imran Rahie</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-content">
+              <h4>Response Time</h4>
+              <p>Within 24–48 hours (Mon–Sat)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-placeholder" style="margin-top: 28px;">
+          <div class="map-grid"></div>
+          <div class="map-pin">📍</div>
+          <div class="map-label">Shahnaz Med — India</div>
+        </div>
+
+        <!-- Social Links -->
+        <div style="margin-top: 28px;">
+          <p style="font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px;">Follow Us</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:var(--sky-pale);border-radius:100px;font-size:0.82rem;font-weight:500;color:var(--mid-blue);transition:all 0.3s;"
+               onmouseover="this.style.background='var(--sky-blue)';this.style.color='#fff';"
+               onmouseout="this.style.background='var(--sky-pale)';this.style.color='var(--mid-blue)';">
+              📸 Instagram
+            </a>
+            <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:var(--sky-pale);border-radius:100px;font-size:0.82rem;font-weight:500;color:var(--mid-blue);transition:all 0.3s;"
+               onmouseover="this.style.background='var(--sky-blue)';this.style.color='#fff';"
+               onmouseout="this.style.background='var(--sky-pale)';this.style.color='var(--mid-blue)';">
+              👥 Facebook
+            </a>
+            <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:var(--sky-pale);border-radius:100px;font-size:0.82rem;font-weight:500;color:var(--mid-blue);transition:all 0.3s;"
+               onmouseover="this.style.background='var(--sky-blue)';this.style.color='#fff';"
+               onmouseout="this.style.background='var(--sky-pale)';this.style.color='var(--mid-blue)';">
+              🎵 TikTok
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-wrap reveal-right">
+        <h3>Send Us a Message</h3>
+        <p>Fill in the form below and we'll get back to you as soon as possible.</p>
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Your first name" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Your last name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number <span style="font-weight:400;text-transform:none;letter-spacing:0;">(Optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 00000" />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select a topic…</option>
+              <option value="general">General Enquiry</option>
+              <option value="products">Product Information</option>
+              <option value="wholesale">Wholesale / Bulk Order</option>
+              <option value="press">Press &amp; Media</option>
+              <option value="feedback">Feedback</option>
+              <option value="collaboration">Collaboration</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="source">How did you find us?</label>
+            <select id="source" name="source">
+              <option value="" disabled selected>Select an option…</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="tiktok">TikTok</option>
+              <option value="word">Word of Mouth</option>
+              <option value="search">Google / Search</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help you…" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send Message ✉️</button>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <p>✅ Thank you for reaching out! We'll be in touch within 24–48 hours. 💙</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="padding: 80px 5%; background: var(--cream-light);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div class="text-center" style="margin-bottom: 48px;">
+        <div class="section-label reveal">Quick Answers</div>
+        <h2 class="section-title reveal delay-1">Frequently Asked<br><em>Questions</em></h2>
+        <p class="section-desc reveal delay-2" style="margin: 16px auto 0;">
+          Can't find what you're looking for? Send us a message using the form above.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal delay-1">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            When will your products launch?
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our inaugural collection is currently in final production and testing. Sign up for our mailing list on the Products page to be notified the moment we launch. We're aiming to release very soon, insha'Allah.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal delay-2">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What makes Shahnaz Med different from regular scrubs?
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Most scrubs are not designed with modesty in mind — they're short, tight-fitting, and lack proper sleeve coverage. Shahnaz Med is built specifically to solve these problems: longer lengths, better coverage, proper sleeve fitting, and all-day comfort without compromising on style.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal delay-3">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you offer wholesale or bulk orders?
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes! We welcome wholesale enquiries from hospitals, clinics, universities, and medical training organisations. Please contact us using the form above and select "Wholesale / Bulk Order" as your subject and we'll get back to you promptly.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal delay-4">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How can I get in touch with the founder directly?
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              You can reach Khan Imran Rahie directly at <a href="mailto:shahnazmed@gmail.com" style="color:var(--sky-blue);">shahnazmed@gmail.com</a> or call/WhatsApp <a href="tel:9103681134" style="color:var(--sky-blue);">+91 910 368 1134</a>. We're a small team and we always appreciate hearing directly from our community.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal delay-3">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Will you ship across India and internationally?
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We plan to ship across India from launch and are actively working on international shipping as well. Sign up for updates on the Products page to be notified about availability in your region.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-main">Shahnaz Med</span>
+            <span class="logo-sub">Modest Medical Wear</span>
+          </div>
+          <p>Modest. Comfortable. Functional. Medical wear designed for women who deserve attire that respects both their profession and their personal values.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Our Founder</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:shahnazmed@gmail.com">shahnazmed@gmail.com</a></li>
+            <li><a href="tel:9103681134">+91 910 368 1134</a></li>
+            <li><a href="https://www.shahnazmed.com" target="_blank">www.shahnazmed.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Shahnaz Med. All rights reserved. Designed with 💙</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">in</a>
+          <a href="#" class="social-btn" aria-label="Facebook">fb</a>
+          <a href="#" class="social-btn" aria-label="TikTok">tt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').classList.remove('open');
+      });
+
+      // Open clicked if it wasn't already open
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+  </script>
+</body>
+</html>
